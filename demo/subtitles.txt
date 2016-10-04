@@ -1,0 +1,23 @@
+0, 6
+Welcome to the brief Demo of Web application for Stock Market Tradings
+
+7, 6
+You are able to download Web App deployment directly by GitHub link
+
+19, 10
+WAR deployment need to be uploaded into APP Server 
+
+39, 5
+After upload is completed Trades Web APP is available to use on server
+
+47, 8
+There is a table with current trades on the top where you can update parameters
+
+1:09, 4
+After updating your trade history table will show you it's previos state in the bottom 
+
+2:00, 10
+Evaluate Volume Weighted Stock Price and GBCE All Share Index you can in the midium section
+
+2:45, 5.3
+Have a nice Day!
