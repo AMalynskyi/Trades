@@ -1,0 +1,117 @@
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] trades
+[INFO] trades-api-impl
+[INFO] trades-webapp
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building trades 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ trades ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0.1:enforce (enforce-java) @ trades ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ trades ---
+[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades\1.0\trades-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building trades-api-impl 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ trades-api-impl ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0.1:enforce (enforce-java) @ trades-api-impl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ trades-api-impl ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ trades-api-impl ---
+[INFO] Compiling 5 source files to C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ trades-api-impl ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ trades-api-impl ---
+[INFO] Compiling 1 source file to C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.13:test (default-test) @ trades-api-impl ---
+[INFO] Surefire report directory: C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running jpmorgan.api.impl.TestSource
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[WARNING] Could not delete temp direcotry C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\surefire because File C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\surefire\surefirebooter4195292227935380430.jar unable to be deleted.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ trades-api-impl ---
+[INFO] Building jar: C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\trades-api-impl-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ trades-api-impl ---
+[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\trades-api-impl-1.0.jar to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-api-impl\1.0\trades-api-impl-1.0.jar
+[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-api-impl\1.0\trades-api-impl-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building trades-webapp 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ trades-webapp ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0.1:enforce (enforce-java) @ trades-webapp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ trades-webapp ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ trades-webapp ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ trades-webapp ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ trades-webapp ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.13:test (default-test) @ trades-webapp ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.3:war (default-war) @ trades-webapp ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [trades-webapp] in [C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target\trades-1.0]
+[INFO] Processing war project
+[INFO] Copying webapp resources [C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\src\main\webapp]
+[INFO] Webapp assembled in [154 msecs]
+[INFO] Building war: C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target\trades-1.0.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ trades-webapp ---
+[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target\trades-1.0.war to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-webapp\1.0\trades-webapp-1.0.war
+[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-webapp\1.0\trades-webapp-1.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] trades ............................................ SUCCESS [1.315s]
+[INFO] trades-api-impl ................................... SUCCESS [3.966s]
+[INFO] trades-webapp ..................................... SUCCESS [1.114s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.569s
+[INFO] Finished at: Thu Sep 29 23:28:17 EEST 2016
+[INFO] Final Memory: 15M/179M
+[INFO] ------------------------------------------------------------------------

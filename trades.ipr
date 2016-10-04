@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactManager">
+    <artifact type="war" name="trades-webapp:war">
+      <output-path>$PROJECT_DIR$/trades-webapp/target</output-path>
+      <root id="archive" name="trades-1.0.war">
+        <element id="artifact" artifact-name="trades-webapp:war exploded" />
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="trades-webapp:war exploded">
+      <output-path>$PROJECT_DIR$/trades-webapp/target/trades-1.0</output-path>
+      <root id="root">
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="trades-webapp" />
+          </element>
+          <element id="directory" name="lib">
+            <element id="archive" name="trades-api-impl-1.0.jar">
+              <element id="module-output" name="trades-api-impl" />
+            </element>
+            <element id="library" level="project" name="Maven: javax.enterprise:cdi-api:1.2" />
+            <element id="library" level="project" name="Maven: javax.el:javax.el-api:3.0.0" />
+            <element id="library" level="project" name="Maven: javax.interceptor:javax.interceptor-api:1.2" />
+            <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
+            <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.0" />
+            <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+            <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.6.2" />
+            <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+            <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.6.2" />
+            <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-taglib:2.6.2" />
+            <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5" />
+            <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5" />
+            <element id="library" level="project" name="Maven: javax.ejb:javax.ejb-api:3.2" />
+          </element>
+        </element>
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target/MANIFEST.MF" />
+        </element>
+        <element id="javaee-facet-resources" facet="trades-webapp/web/Web" />
+      </root>
+    </artifact>
+  </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="trades-api" />
+        <module name="trades-api-impl" />
+        <module name="trades-webapp" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="trades-api-impl" target="1.5" />
+      <module name="trades-webapp" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="CopyrightManager" default="" />
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trades-api-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trades-webapp" charset="UTF-8" />
+  </component>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/trades-webapp" />
+  </component>
+  <component name="InspectionProjectProfileManager">
+    <profiles>
+      <profile version="1.0" is_locked="false">
+        <option name="myName" value="Project Default" />
+        <option name="myLocal" value="false" />
+        <inspection_tool class="JavadocReference" enabled="false" level="ERROR" enabled_by_default="false" />
+      </profile>
+    </profiles>
+    <option name="PROJECT_PROFILE" value="Project Default" />
+    <option name="USE_PROJECT_PROFILE" value="true" />
+    <version value="1.0" />
+  </component>
+  <component name="JsfProjectComponent">
+    <option name="viewSettings">
+      <JsfViewSettings>
+        <option name="libraries" value="true" />
+      </JsfViewSettings>
+    </option>
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/trades-api/pom.xml" />
+        <option value="$PROJECT_DIR$/trades-webapp-exec/pom.xml" />
+        <option value="$PROJECT_DIR$/trades-webapp-it/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/trades.iml" filepath="$PROJECT_DIR$/trades.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trades-api-impl/trades-api-impl.iml" filepath="$PROJECT_DIR$/trades-api-impl/trades-api-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trades-webapp/trades-webapp.iml" filepath="$PROJECT_DIR$/trades-webapp/trades-webapp.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="PublishConfigData" serverName="Tomcat">
+    <serverData>
+      <paths name="Tomcat">
+        <serverdata>
+          <mappings>
+            <mapping deploy="webapps\trades" local="$PROJECT_DIR$/trades-webapp" web="/trades" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="" />
+  </component>
+  <component name="libraryTable">
+    <library name="Maven: com.sun.mail:javax.mail:1.5.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.5.0/javax.mail-1.5.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.5.0/javax.mail-1.5.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.5.0/javax.mail-1.5.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.activation:activation:1.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.ejb:javax.ejb-api:3.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/ejb/javax.ejb-api/3.2/javax.ejb-api-3.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/ejb/javax.ejb-api/3.2/javax.ejb-api-3.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/ejb/javax.ejb-api/3.2/javax.ejb-api-3.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.el:javax.el-api:3.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/el/javax.el-api/3.0.0/javax.el-api-3.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/el/javax.el-api/3.0.0/javax.el-api-3.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/el/javax.el-api/3.0.0/javax.el-api-3.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.enterprise:cdi-api:1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/enterprise/cdi-api/1.2/cdi-api-1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/enterprise/cdi-api/1.2/cdi-api-1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/enterprise/cdi-api/1.2/cdi-api-1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.inject:javax.inject:1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.interceptor:javax.interceptor-api:1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/interceptor/javax.interceptor-api/1.2/javax.interceptor-api-1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/interceptor/javax.interceptor-api/1.2/javax.interceptor-api-1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/interceptor/javax.interceptor-api/1.2/javax.interceptor-api-1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax:javaee-api:7.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: junit:junit:4.10">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.logging.log4j:log4j-api:2.6.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.6.2/log4j-api-2.6.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.logging.log4j:log4j-core:2.6.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.6.2/log4j-core-2.6.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.6.2/log4j-core-2.6.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-core/2.6.2/log4j-core-2.6.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.logging.log4j:log4j-taglib:2.6.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-taglib/2.6.2/log4j-taglib-2.6.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-taglib/2.6.2/log4j-taglib-2.6.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-taglib/2.6.2/log4j-taglib-2.6.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.5">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.taglibs:taglibs-standard-spec:1.2.5">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/taglibs/taglibs-standard-spec/1.2.5/taglibs-standard-spec-1.2.5.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/taglibs/taglibs-standard-spec/1.2.5/taglibs-standard-spec-1.2.5-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/taglibs/taglibs-standard-spec/1.2.5/taglibs-standard-spec-1.2.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.hamcrest:hamcrest-core:1.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
+</project>
