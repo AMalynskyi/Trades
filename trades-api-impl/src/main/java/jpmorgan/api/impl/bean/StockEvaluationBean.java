@@ -27,14 +27,14 @@ public class StockEvaluationBean implements StockEvaluation {
         return tradeRecords;
     }
 
-    public Double evalCommonDividend(Double lastDividend, Integer price){
+    public Double evalCommonDividend(Double lastDividend, Integer price) throws IllegalArgumentException{
         if(price == null || price == 0)
             throw new IllegalArgumentException("Price can't be 0 or null");
 
         return lastDividend / price;
     }
 
-    public Double evalPreferredDividend(Integer fixDividend, Integer parValue, Integer price){
+    public Double evalPreferredDividend(Integer fixDividend, Integer parValue, Integer price) throws IllegalArgumentException{
         if(price == null || price == 0)
             throw new IllegalArgumentException("Price can't be 0 or null");
 
@@ -42,7 +42,7 @@ public class StockEvaluationBean implements StockEvaluation {
     }
 
     public Double evalDividend(@NotNull TradeRecord.StockType type, Double div, Integer fixDividend,
-                                Integer parValue, Integer price) {
+                                Integer parValue, Integer price) throws IllegalArgumentException{
         if(type == null)
             throw new IllegalArgumentException("Stock Type can't be null for evaluate Dividend");
 
@@ -50,13 +50,13 @@ public class StockEvaluationBean implements StockEvaluation {
                                     evalPreferredDividend(fixDividend, parValue, price);
     }
 
-    public Double evalPERatio(Integer price, Double dividend){
+    public Double evalPERatio(Integer price, Double dividend) throws IllegalArgumentException{
         if(dividend == null || dividend == 0)
             throw new IllegalArgumentException("Dividend can't be 0 or null");
         return price/dividend;
     }
 
-    public Double evalGeometricMean(Integer tFrime){
+    public Double evalGeometricMean(Double tFrime) throws IllegalArgumentException{
         if(tFrime == null || tFrime == 0)
             throw new IllegalArgumentException("Time frame can't be 0 or null");
 
@@ -73,7 +73,7 @@ public class StockEvaluationBean implements StockEvaluation {
         return isOK ? Math.pow(multiVWSPrice, 1.0/market.keySet().size()) : null;
     }
 
-    public Double evalVolWeightStockPrice(String symbol, Integer tFrime){
+    public Double evalVolWeightStockPrice(String symbol, Double tFrime)  throws IllegalArgumentException{
         if(tFrime == null || tFrime == 0)
             throw new IllegalArgumentException("Time frame can't be 0 or null");
 
@@ -86,7 +86,7 @@ public class StockEvaluationBean implements StockEvaluation {
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Undefined Stock symbol: " + symbol);
         }
-        Date date = new Date(System.currentTimeMillis()-tFrime*60*1000);
+        Date date = new Date((long) (System.currentTimeMillis() - tFrime * 60 * 1000));
         NavigableMap<Date, TradeRecord> tail = stock.tailMap(date, true);
         Double multiSum = 0.0;
         Double qtySum = 0.0;

@@ -3,9 +3,7 @@ package jpmorgan.api.impl.bean;
 import jpmorgan.api.impl.pojo.TradeRecord;
 
 import javax.ejb.Local;
-import javax.ejb.Remote;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * User: Oleksandr Malynskyi
@@ -14,16 +12,18 @@ import java.util.List;
 @Local
 public interface StockEvaluation {
 
-    public Double evalCommonDividend(Double lastDividend, @NotNull Integer price);
+    public RecordTrades getTradeRecords();
 
-    public Double evalPreferredDividend(Integer fixDividend, Integer parValue, @NotNull Integer price);
+    public Double evalCommonDividend(Double lastDividend, @NotNull Integer price) throws IllegalArgumentException;
+
+    public Double evalPreferredDividend(Integer fixDividend, Integer parValue, @NotNull Integer price) throws IllegalArgumentException;
 
     public Double evalDividend(@NotNull TradeRecord.StockType type, Double div, Integer fixDividend,
-                                Integer parValue, @NotNull Integer price);
+                                Integer parValue, @NotNull Integer price) throws IllegalArgumentException;
 
-    public Double evalPERatio(Integer price, Double dividend);
+    public Double evalPERatio(Integer price, Double dividend) throws IllegalArgumentException;
 
-    public Double evalGeometricMean(Integer tFrime);
+    public Double evalGeometricMean(Double tFrime) throws IllegalArgumentException;
 
-    public Double evalVolWeightStockPrice(String symbol, Integer tFrime);
+    public Double evalVolWeightStockPrice(String symbol, Double tFrime) throws IllegalArgumentException;
 }

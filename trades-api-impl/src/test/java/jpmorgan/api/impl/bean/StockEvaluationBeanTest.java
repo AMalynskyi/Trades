@@ -1,6 +1,5 @@
 package jpmorgan.api.impl.bean;
 
-import com.bm.testsuite.BaseSessionBeanFixture;
 import jpmorgan.api.impl.pojo.TradeRecord;
 import org.junit.After;
 import org.junit.Before;
@@ -8,13 +7,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import javax.ejb.embeddable.EJBContainer;
 import java.util.Date;
 import java.util.TreeMap;
 
 import static org.assertj.core.api.Assertions.*;
 
 @RunWith( JUnit4.class )
-public class StockEvaluationBeanTest extends BaseSessionBeanFixture<StockEvaluationBean> {
+public class StockEvaluationBeanTest{
+
+    private static EJBContainer ejbContainer;
+    StockEvaluation seBean;
 
     TradeRecord aleCurrent;
     TradeRecord ale3MinBefore;
@@ -22,14 +25,11 @@ public class StockEvaluationBeanTest extends BaseSessionBeanFixture<StockEvaluat
     TradeRecord ginCurrent;
     TradeRecord gin7MinBefore;
 
-    public StockEvaluationBeanTest() {
-        super(StockEvaluationBean.class, new Class[]{});
-    }
-
     @Before
     public void init() throws Exception {
-        super.setUp();
-         StockEvaluationBean seBean = getBeanToTest();
+        ejbContainer = EJBContainer.createEJBContainer();
+
+         seBean = (StockEvaluation) ejbContainer.getContext().lookup("java:global/trades-api-impl/StockEvaluationBean");
 
          seBean.getTradeRecords().setRecords(new TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>>());
 
@@ -102,37 +102,22 @@ public class StockEvaluationBeanTest extends BaseSessionBeanFixture<StockEvaluat
 
     @After
     public void clear() throws Exception {
-         StockEvaluationBean seBean = getBeanToTest();
          seBean.getTradeRecords().setRecords(new TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>>());
          aleCurrent = null;
          ale3MinBefore = null;
          ginCurrent = null;
          gin7MinBefore = null;
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testEvalCommonDividend() throws Exception {
-        getBeanToTest().evalCommonDividend(1.0, 0);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testEvalPreferredDividend() throws Exception {
-        getBeanToTest().evalPreferredDividend(1, 2, 0);
+        ejbContainer.close();
     }
 
     @Test
     public void testEvalDividend() throws Exception {
-        assertThat(getBeanToTest().evalDividend(TradeRecord.StockType.COMMON, 1.4, 5, 10, 123)).isEqualTo(1.4/123);
+        assertThat(seBean.evalDividend(TradeRecord.StockType.COMMON, 1.4, 5, 10, 123)).isEqualTo(1.4 / 123);
     }
 
     @Test
     public void testEvalPERatio() throws Exception {
-        assertThat(getBeanToTest().evalPERatio(5, 1.0)).isEqualTo(5.0);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testEvalPERatioExc() throws Exception {
-        getBeanToTest().evalPERatio(5, 0.0);
+        assertThat(seBean.evalPERatio(5, 1.0)).isEqualTo(5.0);
     }
 
     @Test
@@ -145,22 +130,11 @@ public class StockEvaluationBeanTest extends BaseSessionBeanFixture<StockEvaluat
         qSum = (double) ginCurrent.getQty();
         vwsprise *= mSum/qSum;
 
-        assertThat(getBeanToTest().evalGeometricMean(1)).isEqualTo(Math.pow(vwsprise, 1.0/2));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testEvalGeometricMeanExc() throws Exception {
-        getBeanToTest().evalGeometricMean(0);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testEvalVolWeightStockPriceExc() throws Exception {
-        getBeanToTest().evalVolWeightStockPrice("ASD", 1);
+        assertThat(seBean.evalGeometricMean((double) 1)).isEqualTo(Math.pow(vwsprise, 1.0 / 2));
     }
 
     @Test
     public void testEvalVolWeightStockPrice() throws Exception {
-
-        assertThat(getBeanToTest().evalVolWeightStockPrice("GIN", 1)).isEqualTo(ginCurrent.getPrise()*1.0);
+        assertThat(seBean.evalVolWeightStockPrice("GIN", (double) 1)).isEqualTo(ginCurrent.getPrise() * 1.0);
     }
 }

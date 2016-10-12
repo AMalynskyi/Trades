@@ -1,6 +1,5 @@
 package jpmorgan.api.impl.bean;
 
-import com.bm.testsuite.BaseSessionBeanFixture;
 import jpmorgan.api.impl.pojo.TradeRecord;
 import org.junit.After;
 import org.junit.Before;
@@ -8,13 +7,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import javax.ejb.embeddable.EJBContainer;
 import java.util.Date;
 import java.util.TreeMap;
 
 import static org.assertj.core.api.Assertions.*;
 
 @RunWith( JUnit4.class )
-public class RecordTradesBeanTest extends BaseSessionBeanFixture<RecordTradesBean> {
+public class RecordTradesBeanTest{
+
+    private static EJBContainer ejbContainer;
+    RecordTrades rtBean;
 
     TradeRecord aleCurrent;
     TradeRecord ale3MinBefore;
@@ -22,14 +25,11 @@ public class RecordTradesBeanTest extends BaseSessionBeanFixture<RecordTradesBea
     TradeRecord ginCurrent;
     TradeRecord gin7MinBefore;
 
-    public RecordTradesBeanTest() {
-        super(RecordTradesBean.class, new Class[]{});
-    }
-
     @Before
     public void init() throws Exception {
-        super.setUp();
-        RecordTradesBean rtBean = getBeanToTest();
+        ejbContainer = EJBContainer.createEJBContainer();
+
+        rtBean = (RecordTrades) ejbContainer.getContext().lookup("java:global/trades-api-impl/RecordTradesBean");
 
         rtBean.setRecords(new TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>>());
 
@@ -102,53 +102,52 @@ public class RecordTradesBeanTest extends BaseSessionBeanFixture<RecordTradesBea
 
     @After
     public void clear() throws Exception {
-        RecordTradesBean rtBean = getBeanToTest();
         rtBean.setRecords(new TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>>());
         aleCurrent = null;
         ale3MinBefore = null;
         ginCurrent = null;
         gin7MinBefore = null;
-        super.tearDown();
+        ejbContainer.close();
     }
 
     @Test
     public void testGetStock() throws Exception {
-        assertThat(getBeanToTest().getStock(TradeRecord.StockSymbol.GIN).size()).isEqualTo(2);
-        assertThat(getBeanToTest().getStock(TradeRecord.StockSymbol.ALE).lastKey()).isEqualTo(aleCurrent.getTimeStamp());
-        assertThat(getBeanToTest().getStock(TradeRecord.StockSymbol.JOE)).isNull();
-        assertThat(getBeanToTest().getStock(TradeRecord.StockSymbol.GIN).firstKey()).isBefore(ale3MinBefore.getTimeStamp());
+        assertThat(rtBean.getStock(TradeRecord.StockSymbol.GIN).size()).isEqualTo(2);
+        assertThat(rtBean.getStock(TradeRecord.StockSymbol.ALE).lastKey()).isEqualTo(aleCurrent.getTimeStamp());
+        assertThat(rtBean.getStock(TradeRecord.StockSymbol.JOE)).isNull();
+        assertThat(rtBean.getStock(TradeRecord.StockSymbol.GIN).firstKey()).isBefore(ale3MinBefore.getTimeStamp());
     }
 
     @Test
     public void testGetMarket() throws Exception {
-        assertThat(getBeanToTest().getMarket().size()).isEqualTo(2);
+        assertThat(rtBean.getMarket().size()).isEqualTo(2);
     }
 
     @Test
     public void testGetLastRecord() throws Exception {
-        assertThat(getBeanToTest().getLastRecord(TradeRecord.StockSymbol.ALE).getPeRatio()).isEqualTo(aleCurrent.getPeRatio());
+        assertThat(rtBean.getLastRecord(TradeRecord.StockSymbol.ALE).getPeRatio()).isEqualTo(aleCurrent.getPeRatio());
     }
 
     @Test
     public void testUpdateRecord() throws Exception {
-        getBeanToTest().uploadRecord(TradeRecord.StockSymbol.JOE, TradeRecord.StockType.COMMON,
+        rtBean.uploadRecord(TradeRecord.StockSymbol.JOE, TradeRecord.StockType.COMMON,
                 TradeRecord.SellIndicator.SELL, new Date(), 15, 13, 45, 21);
-        assertThat(getBeanToTest().getActualRecords().size()).isEqualTo(3);
-        assertThat(getBeanToTest().getStock(TradeRecord.StockSymbol.JOE).size()).isEqualTo(1);
+        assertThat(rtBean.getActualRecords().size()).isEqualTo(3);
+        assertThat(rtBean.getStock(TradeRecord.StockSymbol.JOE).size()).isEqualTo(1);
 
-        getBeanToTest().uploadRecord(TradeRecord.StockSymbol.ALE, TradeRecord.StockType.COMMON,
+        rtBean.uploadRecord(TradeRecord.StockSymbol.ALE, TradeRecord.StockType.COMMON,
                 TradeRecord.SellIndicator.SELL, new Date(), 15, 13, 45, 21);
 
-        assertThat(getBeanToTest().getLastRecord(TradeRecord.StockSymbol.ALE).getTimeStamp()).isAfterOrEqualsTo(aleCurrent.getTimeStamp());
+        assertThat(rtBean.getLastRecord(TradeRecord.StockSymbol.ALE).getTimeStamp()).isAfterOrEqualsTo(aleCurrent.getTimeStamp());
     }
 
     @Test
     public void testGetActualRecords() throws Exception {
-        assertThat(getBeanToTest().getActualRecords()).doesNotContain(ale3MinBefore, gin7MinBefore);
+        assertThat(rtBean.getActualRecords()).doesNotContain(ale3MinBefore, gin7MinBefore);
     }
 
     @Test
     public void testGetHistoryRecords() throws Exception {
-        assertThat(getBeanToTest().getHistoryRecords()).contains(aleCurrent, ale3MinBefore, ginCurrent, gin7MinBefore);
+        assertThat(rtBean.getHistoryRecords()).contains(aleCurrent, ale3MinBefore, ginCurrent, gin7MinBefore);
     }
 }

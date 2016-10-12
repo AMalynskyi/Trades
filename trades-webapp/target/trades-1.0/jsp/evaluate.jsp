@@ -6,6 +6,8 @@
 
     StockEvaluation bean = InitialContext.doLookup("java:module/StockEvaluationBean");
 
+    Logger log = LogManager.getLogger("EVALUATE");
+
     String VWACTION = "VWSP";
     String GBCEACTION = "GBCE";
 
@@ -18,9 +20,9 @@
     Double result=null;
     try {
         if(VWACTION.equals(action)){
-            result = bean.evalVolWeightStockPrice(symbol, Integer.valueOf(tFrame));
+            result = bean.evalVolWeightStockPrice(symbol, Double.valueOf(tFrame));
         }else if(GBCEACTION.equals(action)){
-            result = bean.evalGeometricMean(Integer.valueOf(tFrame));
+            result = bean.evalGeometricMean(Double.valueOf(tFrame));
         }
     } catch (IllegalArgumentException e) {
         response.getWriter().write("<p style=\"color: red; font-style: italic\">" +
