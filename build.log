@@ -1,4 +1,3 @@
-[INFO] Error stacktraces are turned on.
 [INFO] Scanning for projects...
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
@@ -15,14 +14,18 @@
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.0.1:enforce (enforce-java) @ trades ---
 [INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze) @ trades ---
+[INFO] Skipping pom project
+[INFO] 
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ trades ---
-[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades\1.0\trades-1.0.pom
+[INFO] Installing C:\NC\JavaTUT\JPMorganTest\Trades\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades\1.0\trades-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building trades-api-impl 1.0
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ trades-api-impl ---
+[INFO] Deleting C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.0.1:enforce (enforce-java) @ trades-api-impl ---
 [INFO] 
@@ -32,43 +35,137 @@
 [INFO] Copying 1 resource
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ trades-api-impl ---
-[INFO] Compiling 5 source files to C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\classes
+[INFO] Compiling 5 source files to C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ trades-api-impl ---
 [debug] execute contextualize
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\src\test\resources
+[INFO] skip non existing resourceDirectory C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\src\test\resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ trades-api-impl ---
-[INFO] Compiling 1 source file to C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\test-classes
+[INFO] Compiling 2 source files to C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.13:test (default-test) @ trades-api-impl ---
-[INFO] Surefire report directory: C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\surefire-reports
+[INFO] Surefire report directory: C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\surefire-reports
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running jpmorgan.api.impl.TestSource
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+Running jpmorgan.api.impl.bean.RecordTradesBeanTest
+17:32:05,827  INFO MemoryContextFactory:34 - Creating EJB3Unit initial JNDI context
+2016-10-12 17:32:06,410 main DEBUG Initializing configuration XmlConfiguration[location=C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml]
+2016-10-12 17:32:06,415 main DEBUG Installed script engines
+2016-10-12 17:32:06,429 main DEBUG Mozilla Rhino Version: 1.7 release 3 PRERELEASE, Language: ECMAScript, Threading: MULTITHREADED, Compile: true, Names: {js, rhino, JavaScript, javascript, ECMAScript, ecmascript}
+2016-10-12 17:32:06,429 main DEBUG PluginManager 'Core' found 99 plugins
+2016-10-12 17:32:06,430 main DEBUG PluginManager 'Level' found 0 plugins
+2016-10-12 17:32:06,436 main DEBUG Starting 1 Log4j2Scheduled threads
+2016-10-12 17:32:06,440 main DEBUG PluginManager 'Lookup' found 13 plugins
+2016-10-12 17:32:06,443 main DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2016-10-12 17:32:06,455 main TRACE TypeConverterRegistry initializing.
+2016-10-12 17:32:06,455 main DEBUG PluginManager 'TypeConverter' found 23 plugins
+2016-10-12 17:32:06,468 main DEBUG PatternLayout$Builder(pattern="%d{dd.MM.yyyy HH\:mm\:ss.SSS} [%-10t:%-5T] [%-5p] [%c{4}] - %m%n", PatternSelector=null, Configuration(JPMorganTrades), Replace=null, charset="null", alwaysWriteExceptions="null", noConsoleNoAnsi="null", header="null", footer="null")
+2016-10-12 17:32:06,469 main DEBUG PluginManager 'Converter' found 41 plugins
+2016-10-12 17:32:06,488 main DEBUG Building Plugin[name=SizeBasedTriggeringPolicy, class=org.apache.logging.log4j.core.appender.rolling.SizeBasedTriggeringPolicy].
+2016-10-12 17:32:06,498 main DEBUG createPolicy(size="10 MB")
+2016-10-12 17:32:06,500 main DEBUG Building Plugin[name=Policies, class=org.apache.logging.log4j.core.appender.rolling.CompositeTriggeringPolicy].
+2016-10-12 17:32:06,501 main DEBUG createPolicy(={SizeBasedTriggeringPolicy(size=10485760)})
+2016-10-12 17:32:06,502 main DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.RollingFileAppender].
+2016-10-12 17:32:06,505 main DEBUG createAppender(fileName="logs/trades.log", filePattern="logs/${date:yyyy-MM}/trades-%d{yyyy-MM-dd-HH}-%i.log.gz", append="null", name="RollingFile", bufferedIO="null", bufferSize="null", immediateFlush="null", Policies(CompositeTriggeringPolicy(policies=[SizeBasedTriggeringPolicy(size=10485760)])), Strategy=null, PatternLayout(%d{dd.MM.yyyy HH\:mm\:ss.SSS} [%-10t:%-5T] [%-5p] [%c{4}] - %m%n), Filter=null, ignoreExceptions="null", advertise="null", advertiseURI="null", Configuration(JPMorganTrades))
+2016-10-12 17:32:06,512 main DEBUG Starting RollingFileManager logs/trades.log
+2016-10-12 17:32:06,513 main DEBUG PluginManager 'FileConverter' found 2 plugins
+2016-10-12 17:32:06,516 main DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
+2016-10-12 17:32:06,517 main DEBUG createAppenders(={RollingFile})
+2016-10-12 17:32:06,517 main DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2016-10-12 17:32:06,518 main DEBUG createAppenderRef(ref="RollingFile", level="null", Filter=null)
+2016-10-12 17:32:06,519 main DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
+2016-10-12 17:32:06,522 main DEBUG createLogger(additivity="null", level="ALL", includeLocation="null", ={RollingFile}, ={}, Configuration(JPMorganTrades), Filter=null)
+2016-10-12 17:32:06,526 main DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
+2016-10-12 17:32:06,527 main DEBUG createLoggers(={root})
+2016-10-12 17:32:06,528 main DEBUG Configuration XmlConfiguration[location=C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml] initialized
+2016-10-12 17:32:06,528 main DEBUG Starting configuration XmlConfiguration[location=C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml]
+2016-10-12 17:32:06,531 main DEBUG Started configuration XmlConfiguration[location=C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml] OK.
+2016-10-12 17:32:06,531 main TRACE Stopping org.apache.logging.log4j.core.config.DefaultConfiguration@62e88227...
+2016-10-12 17:32:06,532 main TRACE DefaultConfiguration notified 1 ReliabilityStrategies that config will be stopped.
+2016-10-12 17:32:06,532 main TRACE DefaultConfiguration stopping root LoggerConfig.
+2016-10-12 17:32:06,532 main TRACE DefaultConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+2016-10-12 17:32:06,533 main TRACE DefaultConfiguration stopping remaining Appenders.
+2016-10-12 17:32:06,533 main DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
+2016-10-12 17:32:06,534 main TRACE DefaultConfiguration stopped 1 remaining Appenders.
+2016-10-12 17:32:06,534 main TRACE DefaultConfiguration cleaning Appenders from 1 LoggerConfigs.
+2016-10-12 17:32:06,535 main DEBUG Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@62e88227 OK
+2016-10-12 17:32:06,588 main TRACE Reregistering MBeans after reconfigure. Selector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector@e532ef0
+2016-10-12 17:32:06,589 main TRACE Reregistering context (1/1): '456d3d51' org.apache.logging.log4j.core.LoggerContext@772e95e8
+2016-10-12 17:32:06,589 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51'
+2016-10-12 17:32:06,590 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=StatusLogger'
+2016-10-12 17:32:06,590 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=ContextSelector'
+2016-10-12 17:32:06,591 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=Loggers,name=*'
+2016-10-12 17:32:06,592 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=Appenders,name=*'
+2016-10-12 17:32:06,592 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=AsyncAppenders,name=*'
+2016-10-12 17:32:06,593 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=AsyncLoggerRingBuffer'
+2016-10-12 17:32:06,593 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=Loggers,name=*,subtype=RingBuffer'
+2016-10-12 17:32:06,596 main DEBUG Registering MBean org.apache.logging.log4j2:type=456d3d51
+2016-10-12 17:32:06,599 main DEBUG Registering MBean org.apache.logging.log4j2:type=456d3d51,component=StatusLogger
+2016-10-12 17:32:06,601 main DEBUG Registering MBean org.apache.logging.log4j2:type=456d3d51,component=ContextSelector
+2016-10-12 17:32:06,603 main DEBUG Registering MBean org.apache.logging.log4j2:type=456d3d51,component=Loggers,name=
+2016-10-12 17:32:06,605 main DEBUG Registering MBean org.apache.logging.log4j2:type=456d3d51,component=Appenders,name=RollingFile
+2016-10-12 17:32:06,609 main TRACE Using default SystemClock for timestamps.
+2016-10-12 17:32:06,610 main TRACE Using DummyNanoClock for nanosecond timestamps.
+2016-10-12 17:32:06,611 main DEBUG Reconfiguration complete for context[name=456d3d51] at URI C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml (org.apache.logging.log4j.core.LoggerContext@772e95e8) with optional ClassLoader: null
+2016-10-12 17:32:06,611 main DEBUG Shutdown hook enabled. Registering a new one.
+2016-10-12 17:32:06,613 main DEBUG LoggerContext[name=456d3d51, org.apache.logging.log4j.core.LoggerContext@772e95e8] started OK.
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.383 sec
+Running jpmorgan.api.impl.bean.StockEvaluationBeanTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+2016-10-12 17:32:06,768 pool-1-thread-1 DEBUG Stopping LoggerContext[name=456d3d51, org.apache.logging.log4j.core.LoggerContext@772e95e8]
+2016-10-12 17:32:06,769 pool-1-thread-1 DEBUG Stopping LoggerContext[name=456d3d51, org.apache.logging.log4j.core.LoggerContext@772e95e8]...
+2016-10-12 17:32:06,769 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=456d3d51]
+2016-10-12 17:32:06,770 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=456d3d51,component=StatusLogger]
+2016-10-12 17:32:06,770 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=456d3d51,component=ContextSelector]
+2016-10-12 17:32:06,771 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=456d3d51,component=Loggers,name=]
+2016-10-12 17:32:06,772 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=456d3d51,component=Appenders,name=RollingFile]
+2016-10-12 17:32:06,772 pool-1-thread-1 TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=AsyncAppenders,name=*'
+2016-10-12 17:32:06,773 pool-1-thread-1 TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=AsyncLoggerRingBuffer'
+2016-10-12 17:32:06,773 pool-1-thread-1 TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=456d3d51,component=Loggers,name=*,subtype=RingBuffer'
+2016-10-12 17:32:06,774 pool-1-thread-1 TRACE Stopping XmlConfiguration[location=C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml]...
+2016-10-12 17:32:06,774 pool-1-thread-1 TRACE XmlConfiguration notified 2 ReliabilityStrategies that config will be stopped.
+2016-10-12 17:32:06,775 pool-1-thread-1 TRACE XmlConfiguration stopping 1 LoggerConfigs.
+2016-10-12 17:32:06,775 pool-1-thread-1 TRACE XmlConfiguration stopping root LoggerConfig.
+2016-10-12 17:32:06,775 pool-1-thread-1 TRACE XmlConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+2016-10-12 17:32:06,776 pool-1-thread-1 TRACE XmlConfiguration stopping remaining Appenders.
+2016-10-12 17:32:06,776 pool-1-thread-1 DEBUG Shutting down RollingFileManager logs/trades.log
+2016-10-12 17:32:06,776 pool-1-thread-1 TRACE XmlConfiguration stopped 1 remaining Appenders.
+2016-10-12 17:32:06,777 pool-1-thread-1 TRACE XmlConfiguration cleaning Appenders from 2 LoggerConfigs.
+2016-10-12 17:32:06,777 pool-1-thread-1 DEBUG Stopping Log4j2Scheduled threads.
+2016-10-12 17:32:06,778 pool-1-thread-1 DEBUG Stopped XmlConfiguration[location=C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\classes\log4j2.xml] OK
+2016-10-12 17:32:06,778 pool-1-thread-1 DEBUG Stopped LoggerContext[name=456d3d51, org.apache.logging.log4j.core.LoggerContext@772e95e8]...
 
 Results :
 
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0
 
-[WARNING] Could not delete temp direcotry C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\surefire because File C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\surefire\surefirebooter4195292227935380430.jar unable to be deleted.
 [INFO] 
 [INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ trades-api-impl ---
-[INFO] Building jar: C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\trades-api-impl-1.0.jar
+[INFO] Building jar: C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\trades-api-impl-1.0.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze) @ trades-api-impl ---
+[WARNING] Unused declared dependencies found:
+[WARNING]    org.slf4j:slf4j-log4j12:jar:1.5.0:test
+[WARNING]    org.apache.logging.log4j:log4j-core:jar:2.6.2:compile
+[WARNING]    javax.enterprise:cdi-api:jar:1.2:compile
+[WARNING]    javax.inject:javax.inject:jar:1:compile
+[WARNING]    org.hibernate:hibernate-validator-annotation-processor:jar:4.1.0.Final:test
+[WARNING]    javax.ejb:javax.ejb-api:jar:3.2:compile
 [INFO] 
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ trades-api-impl ---
-[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\target\trades-api-impl-1.0.jar to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-api-impl\1.0\trades-api-impl-1.0.jar
-[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-api-impl\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-api-impl\1.0\trades-api-impl-1.0.pom
+[INFO] Installing C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\target\trades-api-impl-1.0.jar to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-api-impl\1.0\trades-api-impl-1.0.jar
+[INFO] Installing C:\NC\JavaTUT\JPMorganTest\Trades\trades-api-impl\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-api-impl\1.0\trades-api-impl-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building trades-webapp 1.0
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ trades-webapp ---
+[INFO] Deleting C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.0.1:enforce (enforce-java) @ trades-webapp ---
 [INFO] 
@@ -83,35 +180,45 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ trades-webapp ---
 [debug] execute contextualize
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\src\test\resources
+[INFO] skip non existing resourceDirectory C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\src\test\resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ trades-webapp ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] No sources to compile
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.13:test (default-test) @ trades-webapp ---
 [INFO] No tests to run.
 [INFO] 
 [INFO] --- maven-war-plugin:2.3:war (default-war) @ trades-webapp ---
 [INFO] Packaging webapp
-[INFO] Assembling webapp [trades-webapp] in [C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target\trades-1.0]
+[INFO] Assembling webapp [trades-webapp] in [C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\target\trades-1.0]
 [INFO] Processing war project
-[INFO] Copying webapp resources [C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\src\main\webapp]
-[INFO] Webapp assembled in [154 msecs]
-[INFO] Building war: C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target\trades-1.0.war
+[INFO] Copying webapp resources [C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\src\main\webapp]
+[INFO] Webapp assembled in [179 msecs]
+[INFO] Building war: C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\target\trades-1.0.war
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:analyze-only (analyze) @ trades-webapp ---
+[WARNING] Unused declared dependencies found:
+[WARNING]    org.apache.taglibs:taglibs-standard-spec:jar:1.2.5:compile
+[WARNING]    junit:junit:jar:4.10:test
+[WARNING]    org.apache.logging.log4j:log4j-taglib:jar:2.6.2:compile
+[WARNING]    org.apache.logging.log4j:log4j-api:jar:2.6.2:compile
+[WARNING]    jpmorgan:trades-api-impl:jar:1.0:compile
+[WARNING]    javax.ejb:javax.ejb-api:jar:3.2:compile
+[WARNING]    org.apache.taglibs:taglibs-standard-impl:jar:1.2.5:compile
 [INFO] 
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ trades-webapp ---
-[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\target\trades-1.0.war to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-webapp\1.0\trades-webapp-1.0.war
-[INFO] Installing C:\NC\Java TUT\JPMorganTest\trades\trades-webapp\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-webapp\1.0\trades-webapp-1.0.pom
+[INFO] Installing C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\target\trades-1.0.war to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-webapp\1.0\trades-webapp-1.0.war
+[INFO] Installing C:\NC\JavaTUT\JPMorganTest\Trades\trades-webapp\pom.xml to C:\Users\malynskyi\.m2\repository\jpmorgan\trades-webapp\1.0\trades-webapp-1.0.pom
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] trades ............................................ SUCCESS [1.315s]
-[INFO] trades-api-impl ................................... SUCCESS [3.966s]
-[INFO] trades-webapp ..................................... SUCCESS [1.114s]
+[INFO] trades ............................................ SUCCESS [3.467s]
+[INFO] trades-api-impl ................................... SUCCESS [6.583s]
+[INFO] trades-webapp ..................................... SUCCESS [1.048s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.569s
-[INFO] Finished at: Thu Sep 29 23:28:17 EEST 2016
-[INFO] Final Memory: 15M/179M
+[INFO] Total time: 11.273s
+[INFO] Finished at: Wed Oct 12 17:32:08 EEST 2016
+[INFO] Final Memory: 23M/231M
 [INFO] ------------------------------------------------------------------------

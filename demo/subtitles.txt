@@ -1,5 +1,5 @@
 0, 6
-Welcome to the brief Demo of Web application for Stock Market Tradings
+Welcome to the brief Demo of Web App for Stock Market Tradings
 
 7, 6
 You are able to download Web App deployment directly by GitHub link

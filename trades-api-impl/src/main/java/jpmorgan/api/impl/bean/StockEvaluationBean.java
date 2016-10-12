@@ -23,25 +23,43 @@ public class StockEvaluationBean implements StockEvaluation {
     public StockEvaluationBean() {
     }
 
-    public Double evalCommonDividend(Double lastDividend, @NotNull Integer price){
+    public RecordTrades getTradeRecords() {
+        return tradeRecords;
+    }
+
+    public Double evalCommonDividend(Double lastDividend, Integer price){
+        if(price == null || price == 0)
+            throw new IllegalArgumentException("Price can't be 0 or null");
+
         return lastDividend / price;
     }
 
-    public Double evalPreferredDividend(Integer fixDividend, Integer parValue, @NotNull Integer price){
+    public Double evalPreferredDividend(Integer fixDividend, Integer parValue, Integer price){
+        if(price == null || price == 0)
+            throw new IllegalArgumentException("Price can't be 0 or null");
+
         return (double) (fixDividend*parValue)/price;
     }
 
     public Double evalDividend(@NotNull TradeRecord.StockType type, Double div, Integer fixDividend,
-                                Integer parValue, @NotNull Integer price) {
+                                Integer parValue, Integer price) {
+        if(type == null)
+            throw new IllegalArgumentException("Stock Type can't be null for evaluate Dividend");
+
         return type.equals(TradeRecord.StockType.COMMON) ? evalCommonDividend(div, price) :
                                     evalPreferredDividend(fixDividend, parValue, price);
     }
 
     public Double evalPERatio(Integer price, Double dividend){
+        if(dividend == null || dividend == 0)
+            throw new IllegalArgumentException("Dividend can't be 0 or null");
         return price/dividend;
     }
 
     public Double evalGeometricMean(Integer tFrime){
+        if(tFrime == null || tFrime == 0)
+            throw new IllegalArgumentException("Time frame can't be 0 or null");
+
         TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>> market = tradeRecords.getMarket();
         Double multiVWSPrice = 1.0;
         boolean isOK = false;
@@ -56,7 +74,18 @@ public class StockEvaluationBean implements StockEvaluation {
     }
 
     public Double evalVolWeightStockPrice(String symbol, Integer tFrime){
-        TreeMap<Date, TradeRecord> stock = tradeRecords.getStock(TradeRecord.StockSymbol.valueOf(symbol));
+        if(tFrime == null || tFrime == 0)
+            throw new IllegalArgumentException("Time frame can't be 0 or null");
+
+        if(symbol == null || symbol.equals(""))
+            throw new IllegalArgumentException("Time frame can't be empty");
+
+        TreeMap<Date, TradeRecord> stock = null;
+        try {
+            stock = tradeRecords.getStock(TradeRecord.StockSymbol.valueOf(symbol));
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Undefined Stock symbol: " + symbol);
+        }
         Date date = new Date(System.currentTimeMillis()-tFrime*60*1000);
         NavigableMap<Date, TradeRecord> tail = stock.tailMap(date, true);
         Double multiSum = 0.0;

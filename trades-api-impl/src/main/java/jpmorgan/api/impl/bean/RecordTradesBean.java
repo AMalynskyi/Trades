@@ -17,7 +17,7 @@ import java.util.*;
 @Startup
 public class RecordTradesBean implements RecordTrades{
 
-    private static TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>> records;
+    static TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>> records;
 
     private static final Logger log = LogManager.getLogger(RecordTradesBean.class);
 
@@ -25,6 +25,10 @@ public class RecordTradesBean implements RecordTrades{
     private StockEvaluation evalStock;
 
     public RecordTradesBean() {
+    }
+
+    public void setRecords(TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>> records) {
+        RecordTradesBean.records = records;
     }
 
     public TreeMap<Date, TradeRecord> getStock(TradeRecord.StockSymbol symbol) {
@@ -40,7 +44,7 @@ public class RecordTradesBean implements RecordTrades{
     }
 
     @Lock(LockType.WRITE)
-    public void updateRecord(TradeRecord.StockSymbol symb, TradeRecord.StockType stockType,
+    public void uploadRecord(TradeRecord.StockSymbol symb, TradeRecord.StockType stockType,
                              TradeRecord.SellIndicator sellIndicator, Date timeStamp, Integer fDiv, Integer parVal,
                              Integer prise, Integer qty){
 
@@ -54,11 +58,18 @@ public class RecordTradesBean implements RecordTrades{
         record.setParValue(parVal);
         record.setPrise(prise);
         record.setQty(qty);
-        record.setDividend(evalStock.evalDividend(stockType, getLastRecord(record.getStockSymbol()).getDividend(),
+        double div = getStock(record.getStockSymbol()) == null ? 1.0 : getLastRecord(record.getStockSymbol()).getDividend();
+        record.setDividend(evalStock.evalDividend(stockType, div,
                         fDiv, parVal, prise));
         record.setPeRatio(evalStock.evalPERatio(prise, record.getDividend()));
 
-        records.get(symb).put(timeStamp, record);
+        TreeMap<Date, TradeRecord> stock = getStock(symb);
+        if(stock == null){
+            stock = new TreeMap<Date, TradeRecord>();
+        }
+
+        stock.put(timeStamp, record);
+        records.put(symb, stock);
     }
 
     @Lock(LockType.READ)

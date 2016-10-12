@@ -18,15 +18,15 @@
 
     RecordTrades bean = InitialContext.doLookup("java:module/RecordTradesBean");
 
-    bean.updateRecord(TradeRecord.StockSymbol.valueOf(request.getParameter("StockSymbol")),
-          TradeRecord.StockType.valueOf(request.getParameter("StockType")),
-          TradeRecord.SellIndicator.valueOf(request.getParameter("SellInd")),
-          new Date(),
-          Integer.valueOf(request.getParameter("FixedDividend")),
-          Integer.valueOf(request.getParameter("ParValue")),
-          Integer.valueOf(request.getParameter("Price")),
-          Integer.valueOf(request.getParameter("Quantity"))
-          );
+    bean.uploadRecord(TradeRecord.StockSymbol.valueOf(request.getParameter("StockSymbol")),
+            TradeRecord.StockType.valueOf(request.getParameter("StockType")),
+            TradeRecord.SellIndicator.valueOf(request.getParameter("SellInd")),
+            new Date(),
+            Integer.valueOf(request.getParameter("FixedDividend")),
+            Integer.valueOf(request.getParameter("ParValue")),
+            Integer.valueOf(request.getParameter("Price")),
+            Integer.valueOf(request.getParameter("Quantity"))
+    );
     response.sendRedirect(request.getHeader("Referer"));
 %>
 

@@ -16,9 +16,15 @@ import java.util.TreeMap;
 @Local
 public interface RecordTrades {
 
-    public void updateRecord(TradeRecord.StockSymbol symb, TradeRecord.StockType stockType,
-                                 TradeRecord.SellIndicator sellIndicator, Date timeStamp, Integer fDiv, Integer parVal,
-                                 Integer prise, Integer qty);
+    public void uploadRecord(TradeRecord.StockSymbol symb, TradeRecord.StockType stockType,
+                             TradeRecord.SellIndicator sellIndicator, Date timeStamp, Integer fDiv, Integer parVal,
+                             Integer prise, Integer qty);
+
+    void setRecords(TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>> records);
+
+    public TradeRecord getLastRecord(TradeRecord.StockSymbol symb);
+
+    public List<TradeRecord> getHistoryRecords();
 
     public List<TradeRecord> getActualRecords();
 

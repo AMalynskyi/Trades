@@ -4,8 +4,6 @@
 
 <%
 
-    final Logger log = LogManager.getLogger("EVALUATE-JSP");
-
     StockEvaluation bean = InitialContext.doLookup("java:module/StockEvaluationBean");
 
     String VWACTION = "VWSP";
@@ -15,16 +13,20 @@
     String tFrame = request.getParameter("tFrame");
     String symbol = request.getParameter("symbol");
 
-    log.debug("received evaluate: " + action + " - " + tFrame + " - " + symbol);
+    response.setContentType("text/xml");
 
     Double result=null;
-    if(VWACTION.equals(action)){
-        result = bean.evalVolWeightStockPrice(symbol, Integer.valueOf(tFrame));
-    }else if(GBCEACTION.equals(action)){
-        result = bean.evalGeometricMean(Integer.valueOf(tFrame));
+    try {
+        if(VWACTION.equals(action)){
+            result = bean.evalVolWeightStockPrice(symbol, Integer.valueOf(tFrame));
+        }else if(GBCEACTION.equals(action)){
+            result = bean.evalGeometricMean(Integer.valueOf(tFrame));
+        }
+    } catch (IllegalArgumentException e) {
+        response.getWriter().write("<p style=\"color: red; font-style: italic\">" +
+                "Incorrect input parameters: " + e.getMessage() + "</p>");
+        return;
     }
-
-    response.setContentType("text/xml");
 
     if(result == null){
         response.getWriter().write("<p style=\"color: red; font-style: italic\">" +
