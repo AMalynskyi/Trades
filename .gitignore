@@ -67,3 +67,4 @@ Temporary Items
 /trades-webapp/target/trades-1.0/WEB-INF/
 /trades-webapp/target/trades-1.0/css/
 /trades-webapp/target/trades-1.0/
+*.iws
