@@ -2,7 +2,7 @@
 Web application for Stock Market Tradings
 
 Please find a short demo by link: 
-[Demo Video](#Demo)
+[Demo](###Demo)
 
 ##Deployment
 
@@ -41,3 +41,4 @@ APP architecture is very simple and consist of
 <p>
 <img src="https://github.com/AMalynskyi/Trades/blob/master/demo/demo.gif"x-width:50%;"/>
 </p>
+
