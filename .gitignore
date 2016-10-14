@@ -45,3 +45,25 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/build.log
+/test.log
+/trades.iws
+/trades.ipr
+/trades.iml
+/trades-webapp/trades-webapp.iml
+/trades-webapp/pom.xml
+/trades-api-impl/logs/
+/trades-api-impl/trades-api-impl.iml
+/trades-api-impl/target/classes/
+/trades-api-impl/target/test-classes/
+/trades-api-impl/target/surefire-reports/
+/trades-api-impl/target/maven-archiver/
+/trades-webapp/target/maven-archiver/
+/trades-webapp/target/trades-1.0/js/
+/trades-webapp/target/trades-1.0/jsp/
+/trades-webapp/target/classes/
+/trades-webapp/target/trades-1.0/META-INF/
+/trades-webapp/target/maven-archiver/pom.properties
+/trades-webapp/target/trades-1.0/WEB-INF/
+/trades-webapp/target/trades-1.0/css/
+/trades-webapp/target/trades-1.0/
