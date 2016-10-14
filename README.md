@@ -38,4 +38,4 @@ APP architecture is very simple and consist of
      Styles and js functions
   
 ###Demo
-[![Demo](https://github.com/AMalynskyi/Trades/blob/master/demo/demo.gif)](https://github.com/AMalynskyi/Trades/blob/master/demo/demo.mp4)
+[![Demo](https://github.com/AMalynskyi/Trades/blob/master/demo/ldemo.gif)](https://github.com/AMalynskyi/Trades/blob/master/demo/demo.mp4)
