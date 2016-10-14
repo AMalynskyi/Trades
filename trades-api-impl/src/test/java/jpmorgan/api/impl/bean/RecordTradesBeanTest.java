@@ -1,9 +1,7 @@
 package jpmorgan.api.impl.bean;
 
 import jpmorgan.api.impl.pojo.TradeRecord;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -17,16 +15,16 @@ import static org.assertj.core.api.Assertions.*;
 public class RecordTradesBeanTest{
 
     private static EJBContainer ejbContainer;
-    RecordTrades rtBean;
+    static RecordTrades rtBean;
 
-    TradeRecord aleCurrent;
-    TradeRecord ale3MinBefore;
+    static TradeRecord aleCurrent;
+    static TradeRecord ale3MinBefore;
 
-    TradeRecord ginCurrent;
-    TradeRecord gin7MinBefore;
+    static TradeRecord ginCurrent;
+    static TradeRecord gin7MinBefore;
 
-    @Before
-    public void init() throws Exception {
+    @BeforeClass
+    public static void init() throws Exception {
         ejbContainer = EJBContainer.createEJBContainer();
 
         rtBean = (RecordTrades) ejbContainer.getContext().lookup("java:global/trades-api-impl/RecordTradesBean");
@@ -100,8 +98,8 @@ public class RecordTradesBeanTest{
         rtBean.getMarket().put(TradeRecord.StockSymbol.GIN, tMap);
     }
 
-    @After
-    public void clear() throws Exception {
+    @AfterClass
+    public static void clear() throws Exception {
         rtBean.setRecords(new TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>>());
         aleCurrent = null;
         ale3MinBefore = null;

@@ -6,9 +6,8 @@ import javax.ejb.Local;
 import javax.validation.constraints.NotNull;
 
 /**
- * User: Oleksandr Malynskyi
- * Date: 9/28/2016
- */
+ * Interface for formula calculations Bean
+ * */
 @Local
 public interface StockEvaluation {
 

@@ -5,9 +5,8 @@ import java.lang.reflect.Method;
 import java.util.Date;
 
 /**
- * User: Oleksandr Malynskyi
- * Date: 9/25/2016
- */
+ * POJO for Trade Record entity
+ * */
 public class TradeRecord implements Serializable{
 
     /**

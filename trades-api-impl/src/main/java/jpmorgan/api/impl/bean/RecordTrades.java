@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.TreeMap;
 
 /**
- * User: Oleksandr Malynskyi
- * Date: 9/27/2016
+ * Interface for Trade Records entities managing
+ *
  */
 @Local
 public interface RecordTrades {
@@ -37,4 +37,6 @@ public interface RecordTrades {
     public TreeMap<Date, TradeRecord> getStock(TradeRecord.StockSymbol symbol);
 
     public TreeMap<TradeRecord.StockSymbol, TreeMap<Date, TradeRecord>> getMarket();
+
+    public void removeRecordStock(TradeRecord.StockSymbol symbol) throws IllegalArgumentException;
 }
