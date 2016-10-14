@@ -2,7 +2,7 @@
 Web application for Stock Market Tradings
 
 Please find a short demo by link: 
-[Demo](###Demo)
+[Demo](#demo)
 
 ##Deployment
 
